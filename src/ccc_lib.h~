@@ -1,9 +1,0 @@
-
-#ifndef CCC_LIB_H
-#define CCC_LIB_H
-
-char *camelcase_to_underline(char *input);
-
-char *underline_to_camelcase(char *input);
-
-#endif
