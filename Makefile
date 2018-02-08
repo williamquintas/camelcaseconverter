@@ -4,6 +4,8 @@ CFLAGS = -Wextra
 DIR = src
 FILENAME = $(DIR)/main.c
 OBJNAME = $(DIR)/main.o
+LIBNAME = $(DIR)/ccc_lib.c
+LIBOBJ = $(DIR)/ccc_lib.o
 TARGET = ./main
 SRCS := $(shell find $(DIR) -name '*.c')
 OBJS = $(SRCS:.c=.o)
@@ -26,10 +28,13 @@ EXTENSIONS = *.l *.c *.h *.in *.out *.sh
 
 all:lex $(TARGET)
 
-$(TARGET):$(OBJNAME)
-	$(CC) -o$(TARGET) $(OBJNAME) $(CFLAGS) $(LEXFLAGS)
+$(TARGET):$(OBJNAME) $(LIBOBJ)
+	$(CC) -o$(TARGET) $(OBJNAME) $(LIBOBJ) $(CFLAGS) $(LEXFLAGS)
 
 $(OBJNAME):$(FILENAME)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+$(LIBOBJ):$(LIBNAME)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 lex:$(LEXSRCS)
