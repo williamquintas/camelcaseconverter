@@ -1,7 +1,27 @@
+#include "stdio.h"
 #include "string.h"
 #include "ccc_lib.h"
 
 void camelcase_to_underline(char *input, char *output) {
+  int i = 1, j = 1;
+  //passa o primeiro caracter da palavra para minusculo
+  output[0] = input[0] + 32;
+  //procura por letras em maiusculo
+  while (i < strlen(input)) {
+    if (input[i] >= 65 && input[i] <= 90) {
+      output[j] = '_';
+      j++;
+      output[j] = input[i] + 32;
+      i++;
+      j++;
+    }
+    else {
+      output[j] = input[i];
+      i++;
+      j++;
+    }
+  }
+  output[j] = 0;
 
   return;
 }
