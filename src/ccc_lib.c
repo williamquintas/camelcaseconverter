@@ -6,9 +6,11 @@ void camelcase_to_underline(char *input, char *output) {
   int i = 1, j = 1;
   //passa o primeiro caracter da palavra para minusculo
   output[0] = input[0] + 32;
-  //procura por letras em maiusculo
+
   while (i < strlen(input)) {
+    //procura por letras em maiusculo
     if (input[i] >= 65 && input[i] <= 90) {
+      //insere caracter e converte para minusculo
       output[j] = '_';
       j++;
       output[j] = input[i] + 32;
@@ -16,13 +18,14 @@ void camelcase_to_underline(char *input, char *output) {
       j++;
     }
     else {
+      //só copia
       output[j] = input[i];
       i++;
       j++;
     }
   }
+  //fecha string
   output[j] = 0;
-
   return;
 }
 
@@ -57,13 +60,4 @@ void underline_to_camelcase(char *input, char *output) {
 
   output[writer]=0;//Fecha string
   return;
-}
-
-void primeira_palavra(char *boolean) {
-  if (*boolean == 0) {
-    *boolean = 1;
-  }
-  else {
-    printf(" ");
-  }
 }
