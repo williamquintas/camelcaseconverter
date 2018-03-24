@@ -17,10 +17,12 @@ char output[50];
 }
 
 [A-Z][a-z]+([A-Z][a-z]+)+ {
-  //printf("sem underline: %s\n", yytext);
+  camelcase_to_underline(yytext, output);
+  printf("%s ", output);
 }
 
-[ \n\t\r]+ {
+[ \t\r] {
+  printf(" ");
 }
 
 [A-Za-z][a-z]+ {
