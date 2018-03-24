@@ -38,3 +38,12 @@ void underline_to_camelcase(char *input, char *output) {
   output[writer]=0;//Fecha string
   return;
 }
+
+void primeira_palavra(char *boolean) {
+  if (*boolean == 0) {
+    *boolean = 1;
+  }
+  else {
+    printf(" ");
+  }
+}
