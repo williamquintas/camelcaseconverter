@@ -1,6 +1,6 @@
 # Macros para compilacao
 CC = gcc
-CFLAGS = -Wextra
+CFLAGS = -Wextra -L/usr/local/opt/flex/lib -I/usr/local/opt/flex/include
 DIR = src
 FILENAME = $(DIR)/main.c
 OBJNAME = $(DIR)/main.o
